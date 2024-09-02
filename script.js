@@ -1,5 +1,10 @@
+const main = document.querySelector('main')
+
 const [dateEl, monthEl, yearEl, hourEl, minEl, secEl, dayEl] = document.querySelectorAll("b")
 const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
+const fonts = ['Roboto Mono', 'Playfair Display', "Handjet", 'Nanum Gothic Coding']
+
+chooseFont()
 
 updateTime()
 setInterval(updateTime, 1000)
@@ -28,4 +33,8 @@ function getData() {
         seconds: d.getSeconds().toString().padStart(2, 0),
         day: days[d.getDay()],
     }
+}
+
+function chooseFont() {
+    main.style.fontFamily = fonts.at(Math.random() * fonts.length)
 }
